@@ -183,6 +183,16 @@ namespace MovJum.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap player_girl_stand1 {
+            get {
+                object obj = ResourceManager.GetObject("player_girl_stand1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap player_icon {
             get {
                 object obj = ResourceManager.GetObject("player_icon", resourceCulture);

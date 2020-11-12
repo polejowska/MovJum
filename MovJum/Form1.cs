@@ -43,7 +43,7 @@ namespace MovJum
             }
             if (player_n == 2)
             {
-                player.Image = Properties.Resources.player_girl_stand;
+                player.Image = Properties.Resources.player_girl_stand1;
             }
 
             labelScore.Text = "| Score: " + score + " | ";

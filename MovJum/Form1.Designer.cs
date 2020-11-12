@@ -229,6 +229,7 @@
             // 
             this.player.BackColor = System.Drawing.Color.Transparent;
             this.player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.player.Image = global::MovJum.Properties.Resources.player_girl_stand1;
             this.player.InitialImage = null;
             this.player.Location = new System.Drawing.Point(40, 568);
             this.player.Margin = new System.Windows.Forms.Padding(0);
