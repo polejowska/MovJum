@@ -69,16 +69,17 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.firstLandscapeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.secondLandscapeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelScore = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.statusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.platform1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.verticalPlatform)).BeginInit();
@@ -158,9 +159,9 @@
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pictureBox3.BackgroundImage = global::MovJum.Properties.Resources.wood_platform;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(309, 554);
+            this.pictureBox3.Location = new System.Drawing.Point(325, 533);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(243, 30);
+            this.pictureBox3.Size = new System.Drawing.Size(226, 30);
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Tag = "platform";
@@ -258,7 +259,7 @@
             this.secondEnemy.BackColor = System.Drawing.Color.Transparent;
             this.secondEnemy.BackgroundImage = global::MovJum.Properties.Resources.enemy;
             this.secondEnemy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.secondEnemy.Location = new System.Drawing.Point(325, 499);
+            this.secondEnemy.Location = new System.Drawing.Point(342, 475);
             this.secondEnemy.Name = "secondEnemy";
             this.secondEnemy.Size = new System.Drawing.Size(47, 64);
             this.secondEnemy.TabIndex = 57;
@@ -572,38 +573,6 @@
             this.gameToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.gameToolStripMenuItem.Text = "Game";
             // 
-            // startMenuToolStripMenuItem
-            // 
-            this.startMenuToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
-            this.startMenuToolStripMenuItem.BackgroundImage = global::MovJum.Properties.Resources.wood_platform;
-            this.startMenuToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.startMenuToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.startMenuToolStripMenuItem.Name = "startMenuToolStripMenuItem";
-            this.startMenuToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.startMenuToolStripMenuItem.Text = "Close";
-            this.startMenuToolStripMenuItem.Click += new System.EventHandler(this.startMenuToolStripMenuItem_Click);
-            // 
-            // restartToolStripMenuItem
-            // 
-            this.restartToolStripMenuItem.BackgroundImage = global::MovJum.Properties.Resources.wood_platform;
-            this.restartToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.restartToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.restartToolStripMenuItem.Text = "Restart";
-            this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
-            // 
-            // quitToolStripMenuItem
-            // 
-            this.quitToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
-            this.quitToolStripMenuItem.BackgroundImage = global::MovJum.Properties.Resources.wood_platform;
-            this.quitToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.quitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.quitToolStripMenuItem.Text = "Quit";
-            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
-            // 
             // changeBackgroundToolStripMenuItem
             // 
             this.changeBackgroundToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -623,7 +592,7 @@
             this.firstLandscapeToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.firstLandscapeToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.firstLandscapeToolStripMenuItem.Name = "firstLandscapeToolStripMenuItem";
-            this.firstLandscapeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.firstLandscapeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.firstLandscapeToolStripMenuItem.Text = "First Landscape";
             this.firstLandscapeToolStripMenuItem.Click += new System.EventHandler(this.firstLandscapeToolStripMenuItem_Click);
             // 
@@ -633,9 +602,41 @@
             this.secondLandscapeToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.secondLandscapeToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.secondLandscapeToolStripMenuItem.Name = "secondLandscapeToolStripMenuItem";
-            this.secondLandscapeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.secondLandscapeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.secondLandscapeToolStripMenuItem.Text = "Second Landscape";
             this.secondLandscapeToolStripMenuItem.Click += new System.EventHandler(this.secondLandscapeToolStripMenuItem_Click);
+            // 
+            // restartToolStripMenuItem
+            // 
+            this.restartToolStripMenuItem.BackgroundImage = global::MovJum.Properties.Resources.wood_platform;
+            this.restartToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.restartToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
+            this.restartToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.restartToolStripMenuItem.Text = "Restart";
+            this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
+            // 
+            // startMenuToolStripMenuItem
+            // 
+            this.startMenuToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            this.startMenuToolStripMenuItem.BackgroundImage = global::MovJum.Properties.Resources.wood_platform;
+            this.startMenuToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.startMenuToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.startMenuToolStripMenuItem.Name = "startMenuToolStripMenuItem";
+            this.startMenuToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.startMenuToolStripMenuItem.Text = "Close";
+            this.startMenuToolStripMenuItem.Click += new System.EventHandler(this.startMenuToolStripMenuItem_Click);
+            // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            this.quitToolStripMenuItem.BackgroundImage = global::MovJum.Properties.Resources.wood_platform;
+            this.quitToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.quitToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -673,6 +674,18 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.statusLabel.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.statusLabel.Location = new System.Drawing.Point(359, 38);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(133, 25);
+            this.statusLabel.TabIndex = 103;
+            this.statusLabel.Text = "statusLabel";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -680,6 +693,7 @@
             this.BackgroundImage = global::MovJum.Properties.Resources.mountain_2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(744, 681);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pictureBox17);
@@ -821,6 +835,7 @@
         private System.Windows.Forms.ToolStripStatusLabel labelScore;
         private System.Windows.Forms.ToolStripStatusLabel timerLabel;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label statusLabel;
     }
 }
 

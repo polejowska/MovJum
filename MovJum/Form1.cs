@@ -32,6 +32,7 @@ namespace MovJum
             timer1.Start();
             this.player_n = player_num;
             menuStrip1.ForeColor = Color.BlanchedAlmond;
+            statusLabel.Text = "";
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
@@ -122,6 +123,10 @@ namespace MovJum
                                 player.Image = Properties.Resources.player_girl_enemy;
                             }
                             player.BackgroundImageLayout = ImageLayout.Zoom;
+
+                            statusLabel.ForeColor = Color.Red;
+                            statusLabel.Text = "You failed. Press enter to try again.";
+
                             gameTimer.Stop();
                             timer1.Stop();
                             game_over = true;
@@ -163,18 +168,22 @@ namespace MovJum
                 second_enemy_speed = -second_enemy_speed;
             }
 
-            // If the player falls
+            // If the player fell
             if (player.Top + player.Height > this.ClientSize.Height + 70)
             {
                 gameTimer.Stop();
                 game_over = true;
-                // TO DO
+                statusLabel.ForeColor = Color.Red;
+                statusLabel.Text = "You failed. Press enter to try again.";
+
             }
 
             // Win conditions
-            if (player.Bounds.IntersectsWith(doorGame.Bounds) && score >= 19)
+            if (player.Bounds.IntersectsWith(doorGame.Bounds) && score == 22)
             {
-                // TO DO
+                statusLabel.Visible = true;
+                statusLabel.ForeColor = Color.Green;
+                statusLabel.Text = "Congratulations! You are a winner!";
             }
         }
 
@@ -283,13 +292,15 @@ namespace MovJum
                 }
             }
 
+            statusLabel.Visible = false;
+
             // Reset positions
             player.Left = 31;
             player.Top = 584;
             firstEnemy.Left = 12;
             firstEnemy.Top = 207;
-            secondEnemy.Left = 505;
-            secondEnemy.Top = 499;
+            secondEnemy.Left = 338;
+            secondEnemy.Top = 484;
             horizontalPlatform.Left = 309;
             verticalPlatform.Top = 554;
 
