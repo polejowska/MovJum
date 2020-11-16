@@ -12,55 +12,55 @@ namespace MovJum
 {
     public partial class Form1 : Form
     {
-        int player_n;
-        int timer_count;
+        int playerNumber;
+        int timerCounter;
+        int scoreCounter = 0;
 
-        bool move_left, move_right, jump, game_over;
-        int jump_speed, force;
-        int score = 0;
-        int player_speed = 15;
+        bool moveLeft, moveRight, jump, gameOver;
+        int jumpSpeed, force;
+        int playerSpeed = 15;
 
-        int horizontal_speed = 5;
-        int vertical_speed = 5;
+        int horizontalSpeed = 5;
+        int verticalSpeed = 5;
 
-        int first_enemy_speed = 5;
-        int second_enemy_speed = 3;
+        int firstEnemySpeed = 5;
+        int secondEnemySpeed = 3;
 
-        public Form1(int player_num)
+        public Form1(int playerNumber)
         {
             InitializeComponent();
             timer1.Start();
-            this.player_n = player_num;
+            this.playerNumber = playerNumber;
             menuStrip1.ForeColor = Color.BlanchedAlmond;
             statusLabel.Text = "";
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
         {
-            if (player_n == 1)
+            if (playerNumber == 1)
             {
                 player.Image = Properties.Resources.player_stand;
             }
-            if (player_n == 2)
+            if (playerNumber == 2)
             {
                 player.Image = Properties.Resources.player_girl_stand1;
             }
 
-            labelScore.Text = "| Score: " + score + " | ";
+            labelScore.Text = "| Score: " + scoreCounter + " | ";
             labelScore.BackColor = System.Drawing.Color.Transparent;
             player.BackColor = System.Drawing.Color.Transparent;
 
             // Make the player fall
-            player.Top += jump_speed;
+            player.Top += jumpSpeed;
 
             // Move the player;
-            if (move_left == true)
+            if (moveLeft == true)
             {
-                player.Left -= player_speed;
+                player.Left -= playerSpeed;
             }
-            if (move_right == true)
+            if (moveRight == true)
             {
-                player.Left += player_speed;
+                player.Left += playerSpeed;
             }
             if (jump == true && force < 0)
             {
@@ -68,15 +68,15 @@ namespace MovJum
             }
             if (jump == true)
             {
-                jump_speed = -10;
+                jumpSpeed = -10;
                 force -= 1;
             }
             else
             {
-                jump_speed = 8;
+                jumpSpeed = 8;
             }
 
-            // Check collisions 
+           
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox)
@@ -90,11 +90,11 @@ namespace MovJum
                             force = 8;
                             player.Top = x.Top - player.Height;
 
-                            if ((string)x.Name == "horizontalPlatform" && move_left == false ||
-                                (string)x.Name == "horizontalPlatform" && move_right == false)
+                            if ((string)x.Name == "horizontalPlatform" && moveLeft == false ||
+                                (string)x.Name == "horizontalPlatform" && moveRight == false)
                             {
                                 // Move the player with the platform
-                                player.Left -= horizontal_speed; 
+                                player.Left -= horizontalSpeed; 
                             }
 
                         }
@@ -106,7 +106,7 @@ namespace MovJum
                         if (player.Bounds.IntersectsWith(x.Bounds) && x.Visible == true)
                         {
                             x.Visible = false;
-                            score++;
+                            scoreCounter++;
                         }
                     }
 
@@ -114,11 +114,11 @@ namespace MovJum
                     {
                         if (player.Bounds.IntersectsWith(x.Bounds))
                         {
-                            if (player_n == 1)
+                            if (playerNumber == 1)
                             {
                                 player.Image = Properties.Resources.player_enemy;
                             }
-                            if (player_n == 2)
+                            if (playerNumber == 2)
                             {
                                 player.Image = Properties.Resources.player_girl_enemy;
                             }
@@ -129,7 +129,7 @@ namespace MovJum
 
                             gameTimer.Stop();
                             timer1.Stop();
-                            game_over = true;
+                            gameOver = true;
                    
                         }
                     }
@@ -138,53 +138,55 @@ namespace MovJum
             }
 
             // Move the horizontal platform
-            horizontalPlatform.Left -= horizontal_speed;
+            horizontalPlatform.Left -= horizontalSpeed;
 
             // Move the vertical platform
-            verticalPlatform.Top += vertical_speed;
+            verticalPlatform.Top += verticalSpeed;
 
             // Make the platforms bounce
             if (horizontalPlatform.Left < 0 || (horizontalPlatform.Left + horizontalPlatform.Width > this.ClientSize.Width))
             {
-                horizontal_speed = -horizontal_speed;
+                horizontalSpeed = -horizontalSpeed;
             }
 
             if (verticalPlatform.Top < 200 || verticalPlatform.Top > 650)
             {
-                vertical_speed = -vertical_speed;
+                verticalSpeed = -verticalSpeed;
             }
 
             // Move enemies
-            firstEnemy.Left -= first_enemy_speed;
-            secondEnemy.Left += second_enemy_speed;
+            firstEnemy.Left -= firstEnemySpeed;
+            secondEnemy.Left += secondEnemySpeed;
 
             // Limit the enemies movement to platform borders
             if (firstEnemy.Left < pictureBox6.Left || firstEnemy.Left + firstEnemy.Width > pictureBox6.Left + pictureBox6.Width)
             {
-                first_enemy_speed = -first_enemy_speed;
+                firstEnemySpeed = -firstEnemySpeed;
             }
             if (secondEnemy.Left < pictureBox3.Left || secondEnemy.Left + secondEnemy.Width > pictureBox3.Left + pictureBox3.Width)
             {
-                second_enemy_speed = -second_enemy_speed;
+                secondEnemySpeed = -secondEnemySpeed;
             }
 
             // If the player fell
             if (player.Top + player.Height > this.ClientSize.Height + 70)
             {
-                gameTimer.Stop();
-                game_over = true;
                 statusLabel.ForeColor = Color.Red;
                 statusLabel.Text = "You failed. Press enter to try again.";
+                gameTimer.Stop();
+                gameOver = true;
 
             }
 
             // Win conditions
-            if (player.Bounds.IntersectsWith(doorGame.Bounds) && score == 22)
+            if (player.Bounds.IntersectsWith(doorGame.Bounds) && scoreCounter == 22)
             {
                 statusLabel.Visible = true;
                 statusLabel.ForeColor = Color.Green;
                 statusLabel.Text = "Congratulations! You are a winner!";
+                gameTimer.Stop();
             }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -200,8 +202,8 @@ namespace MovJum
 
         private void TickEvent(object sender, EventArgs e)
         {
-            timer_count++;
-            timerLabel.Text = "Time: " + timer_count + " s |";
+            timerCounter++;
+            timerLabel.Text = "Time: " + timerCounter + " s |";
         }
 
         private void restartToolStripMenuItem_Click(object sender, EventArgs e)
@@ -239,11 +241,11 @@ namespace MovJum
         {
             if (e.KeyCode == Keys.Left)
             {
-                move_left = false;
+                moveLeft = false;
             }
             else if (e.KeyCode == Keys.Right)
             {
-                move_right = false;
+                moveRight = false;
             }
             else if (jump == true)
             {
@@ -251,7 +253,7 @@ namespace MovJum
             }
 
             // Click enter to restart if the game is over
-            if (e.KeyCode == Keys.Enter && game_over == true)
+            if (e.KeyCode == Keys.Enter && gameOver == true)
             {
                 RestartGame();
             }
@@ -262,11 +264,11 @@ namespace MovJum
         {
             if (e.KeyCode == Keys.Left)
             {
-                move_left = true;
+                moveLeft = true;
             }
             else if (e.KeyCode == Keys.Right)
             {
-                move_right = true;
+                moveRight = true;
             }
             else if (e.KeyCode == Keys.Space && jump == false) // Second condition - prevent double jumping
             {
@@ -277,12 +279,12 @@ namespace MovJum
         private void RestartGame()
         {
             jump = false;
-            move_left = false;
-            move_right = false;
-            game_over = false;
-            score = 0;
+            moveLeft = false;
+            moveRight = false;
+            gameOver = false;
+            scoreCounter = 0;
 
-            labelScore.Text = "| Score: " + score + "| ";
+            labelScore.Text = "| Score: " + scoreCounter + "| ";
 
             foreach (Control x in this.Controls)
             {

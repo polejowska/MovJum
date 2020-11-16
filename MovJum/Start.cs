@@ -12,7 +12,7 @@ namespace MovJum
 {
     public partial class Start : Form
     {
-        int player_num;
+        int playerNumber;
 
         public Start()
         {
@@ -24,14 +24,14 @@ namespace MovJum
             // Set player number
             if (player1.Checked)
             {
-                player_num = 1;
+                playerNumber = 1;
             }
             if (player2.Checked)
             {
-                player_num = 2;
+                playerNumber = 2;
             }
 
-            var gameForm = new Form1(player_num);
+            Form gameForm = new Form1(playerNumber);
             gameForm.ShowDialog(); // Show the game window and make the start window inactive
         }
 
