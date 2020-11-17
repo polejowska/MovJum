@@ -50,10 +50,8 @@ namespace MovJum
             labelScore.BackColor = System.Drawing.Color.Transparent;
             player.BackColor = System.Drawing.Color.Transparent;
 
-            // Make the player fall
             player.Top += jumpSpeed;
 
-            // Move the player;
             if (moveLeft == true)
             {
                 player.Left -= playerSpeed;
@@ -144,12 +142,14 @@ namespace MovJum
             verticalPlatform.Top += verticalSpeed;
 
             // Make the platforms bounce
-            if (horizontalPlatform.Left < 0 || (horizontalPlatform.Left + horizontalPlatform.Width > this.ClientSize.Width))
+            if (horizontalPlatform.Left < 0 
+                || (horizontalPlatform.Left + horizontalPlatform.Width > this.ClientSize.Width))
             {
                 horizontalSpeed = -horizontalSpeed;
             }
 
-            if (verticalPlatform.Top < 200 || verticalPlatform.Top > 650)
+            if (verticalPlatform.Top < 200 
+                || verticalPlatform.Top > 650)
             {
                 verticalSpeed = -verticalSpeed;
             }
@@ -159,11 +159,13 @@ namespace MovJum
             secondEnemy.Left += secondEnemySpeed;
 
             // Limit the enemies movement to platform borders
-            if (firstEnemy.Left < pictureBox6.Left || firstEnemy.Left + firstEnemy.Width > pictureBox6.Left + pictureBox6.Width)
+            if (firstEnemy.Left < pictureBox6.Left || 
+                firstEnemy.Left + firstEnemy.Width > pictureBox6.Left + pictureBox6.Width)
             {
                 firstEnemySpeed = -firstEnemySpeed;
             }
-            if (secondEnemy.Left < pictureBox3.Left || secondEnemy.Left + secondEnemy.Width > pictureBox3.Left + pictureBox3.Width)
+            if (secondEnemy.Left < pictureBox3.Left ||
+                secondEnemy.Left + secondEnemy.Width > pictureBox3.Left + pictureBox3.Width)
             {
                 secondEnemySpeed = -secondEnemySpeed;
             }
@@ -175,7 +177,6 @@ namespace MovJum
                 statusLabel.Text = "You failed. Press enter to try again.";
                 gameTimer.Stop();
                 gameOver = true;
-
             }
 
             // Win conditions
@@ -213,12 +214,12 @@ namespace MovJum
 
         private void firstLandscapeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.BackgroundImage = Properties.Resources.mountains_1;
+            this.BackgroundImage = Properties.Resources.mountain_2;
         }
 
         private void secondLandscapeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.BackgroundImage = Properties.Resources.mountain_2;
+            this.BackgroundImage = Properties.Resources.mountains_1;
         }
 
         private void startMenuToolStripMenuItem_Click(object sender, EventArgs e)

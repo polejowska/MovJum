@@ -32,7 +32,7 @@ namespace MovJum
             }
 
             Form gameForm = new Form1(playerNumber);
-            gameForm.ShowDialog(); // Show the game window and make the start window inactive
+            gameForm.ShowDialog();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
