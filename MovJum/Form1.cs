@@ -175,6 +175,7 @@ namespace MovJum
             {
                 statusLabel.ForeColor = Color.Red;
                 statusLabel.Text = "You failed. Press enter to try again.";
+                timer1.Stop();
                 gameTimer.Stop();
                 gameOver = true;
             }
@@ -185,6 +186,7 @@ namespace MovJum
                 statusLabel.Visible = true;
                 statusLabel.ForeColor = Color.Green;
                 statusLabel.Text = "Congratulations! You are a winner!";
+                timer1.Stop();
                 gameTimer.Stop();
             }
 
@@ -284,6 +286,9 @@ namespace MovJum
             moveRight = false;
             gameOver = false;
             scoreCounter = 0;
+            timerCounter = 0;
+
+            labelScore.Text = "| Score: " + scoreCounter + "| ";
 
             labelScore.Text = "| Score: " + scoreCounter + "| ";
 

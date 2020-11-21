@@ -667,8 +667,7 @@
             this.timerLabel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.timerLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.timerLabel.Name = "timerLabel";
-            this.timerLabel.Size = new System.Drawing.Size(118, 17);
-            this.timerLabel.Text = "toolStripStatusLabel2";
+            this.timerLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // contextMenuStrip1
             // 
