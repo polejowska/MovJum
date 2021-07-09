@@ -6,6 +6,7 @@ In order to play the game, only .exe file needs to be downloaded. Enjoy!
 This project was developed for the following university course:
 * Basics of organization of computer systems
 
+### Screenshots of the game
 <hr>
 
 ![start-menu-movjum](https://user-images.githubusercontent.com/44722312/124877789-b56b5f00-dfcb-11eb-9c9e-5be96e8be745.png)
