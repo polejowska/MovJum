@@ -1,7 +1,7 @@
 ## MovJum
 
-Interactive game with designed graphical user interface.
-In order to play the game, only .exe file needs to be downloaded. Enjoy!
+An interactive game with a designed graphical user interface.
+In order to play the game, only an .exe file needs to be downloaded. Enjoy!
 
 ### Technologies
 
